@@ -1,0 +1,149 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #160b2e;
+  color: white;
+}
+
+.app {
+  width: 90%;
+  max-width: 700px;
+  margin: 40px auto;
+}
+
+/* Header */
+.header {
+  background: #4b1fa3;
+  color: white;
+  padding: 30px;
+  border-radius: 18px;
+  text-align: center;
+  margin-bottom: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 32px;
+}
+
+.header p {
+  margin-top: 8px;
+  color: #dfff00;
+}
+
+/* Cards */
+.card {
+  background: #241044;
+  padding: 25px;
+  border-radius: 18px;
+  margin-bottom: 20px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+
+.card h2 {
+  color: #ff4fa3;
+  margin-top: 0;
+}
+
+/* Inputs */
+input,
+select {
+  width: 100%;
+  padding: 13px;
+  margin: 8px 0;
+  border: 2px solid #4b1fa3;
+  border-radius: 10px;
+  background: #160b2e;
+  color: white;
+  font-size: 15px;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #dfff00;
+}
+
+/* Add button */
+.add-button {
+  width: 100%;
+  padding: 13px;
+  margin-top: 10px;
+  background: #dfff00;
+  color: #160b2e;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.add-button:hover {
+  background: #ff4fa3;
+  color: white;
+}
+
+/* Total */
+.total {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: #dfff00;
+  line-height: 1.6;
+}
+
+/* Expense */
+.expense {
+  background: #32135c;
+  border-left: 5px solid #ff4fa3;
+  padding: 18px;
+  margin: 12px 0;
+  border-radius: 10px;
+}
+
+.expense h3 {
+  margin-top: 0;
+  color: #ff4fa3;
+}
+
+.expense p {
+  margin: 7px 0;
+  color: #eeeeee;
+}
+
+/* Delete button */
+.delete-button {
+  background: #ff4fa3;
+  color: white;
+  border: none;
+  padding: 9px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.delete-button:hover {
+  background: #dfff00;
+  color: #160b2e;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .app {
+    width: 94%;
+    margin: 20px auto;
+  }
+
+  .header h1 {
+    font-size: 26px;
+  }
+
+  .card {
+    padding: 20px;
+  }
+}
