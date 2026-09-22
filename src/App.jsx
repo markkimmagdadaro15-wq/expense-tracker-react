@@ -76,7 +76,7 @@ function App() {
 
       <div className="header">
         <h1>💰 Expense Tracker</h1>
-        <p>Manage and track your daily expenses</p>
+        <p>Track and manage your daily expenses</p>
       </div>
 
       <div className="card">
