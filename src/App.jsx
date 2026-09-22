@@ -1,6 +1,18 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 
+const srOnly = {
+  position: "absolute",
+  width: "1px",
+  height: "1px",
+  padding: 0,
+  margin: "-1px",
+  overflow: "hidden",
+  clip: "rect(0, 0, 0, 0)",
+  whiteSpace: "nowrap",
+  border: 0,
+};
+
 function App() {
   const [description, setDescription] = useState("");
   const [amount, setAmount] = useState("");
@@ -8,7 +20,13 @@ function App() {
   const [date, setDate] = useState("");
 
   const [expenses, setExpenses] = useState(() => {
-    return JSON.parse(localStorage.getItem("expenses")) || [];
+    try {
+      const stored = localStorage.getItem("expenses");
+      return stored ? JSON.parse(stored) : [];
+    } catch (error) {
+      console.error("Failed to load saved expenses, starting with an empty list.", error);
+      return [];
+    }
   });
 
   useEffect(() => {
@@ -18,6 +36,11 @@ function App() {
   const addExpense = () => {
     if (!description || !amount || !date) {
       alert("Please fill in all fields.");
+      return;
+    }
+
+    if (Number(amount) <= 0) {
+      alert("Amount must be greater than 0.");
       return;
     }
 
@@ -59,21 +82,33 @@ function App() {
       <div className="card">
         <h2>Add New Expense</h2>
 
+        <label htmlFor="description" style={srOnly}>
+          Description
+        </label>
         <input
+          id="description"
           type="text"
           placeholder="Expense description"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
         />
 
+        <label htmlFor="amount" style={srOnly}>
+          Amount
+        </label>
         <input
+          id="amount"
           type="number"
           placeholder="Amount"
           value={amount}
           onChange={(e) => setAmount(e.target.value)}
         />
 
+        <label htmlFor="category" style={srOnly}>
+          Category
+        </label>
         <select
+          id="category"
           value={category}
           onChange={(e) => setCategory(e.target.value)}
         >
@@ -86,7 +121,11 @@ function App() {
           <option>Other</option>
         </select>
 
+        <label htmlFor="date" style={srOnly}>
+          Date
+        </label>
         <input
+          id="date"
           type="date"
           value={date}
           onChange={(e) => setDate(e.target.value)}
